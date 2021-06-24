@@ -1,0 +1,28 @@
+{% load static %}
+{#{% load photo_tags %}#}
+{% load i18n %}
+{#{% block head %}#}
+{#<link href="{% static "css/form.css" %}" rel="stylesheet">#}
+{#{% endblock %}#}
+
+{#<div class="form_bgr">#}
+<div class="container-fluid bg-info py-5" id="form-zakaz">
+    <div class="row d-flex justify-content-center">
+        <div class="col-7">
+        <form action="{% url 'clients:clients' %}" method="post" class="d-flex flex-column">
+            <h3 class="text-light text-center">{% translate 'Відправити запит' %}</h3>
+            {% csrf_token %}
+{#            {{ clients_form }}#}
+
+            <div class="d-flex p-2 m-1">{{ clients_form.name }}</div>
+            <div class="d-flex p-2 m-1">{{ clients_form.tel }}{{ clients_form.summ }}</div>
+            <div class="d-flex p-2 m-1">{{ clients_form.region }}</div>
+            <div class="d-flex p-2 m-1">{{ clients_form.penalty }}{{ clients_form.price }}</div>
+            <div class="d-flex p-2 m-1">{{ clients_form.about }}</div>
+            <button class="btn_form"><span class="btn_form_text">{% translate 'Отправить заявку' %}</span></button>
+        </form>
+        </div>
+    </div>
+</div>
+{#</div>#}
+{## 'name', 'tel', 'summ', 'region', 'penalty', 'price', 'about'#}

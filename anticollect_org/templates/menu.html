@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block menu %}
+    <div class="btn-group">
+        {% for obj in index_all %}
+            {% if obj.slug %}
+                <a class="btn btn-outline-primary" href="#{{ obj.slug }}">{{ obj.blcokId }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="btn-group">
+        <a class="btn btn-outline-primary" href="{#% url '' %#}">link</a>
+    </div>
+    </div>
+{% endblock %}

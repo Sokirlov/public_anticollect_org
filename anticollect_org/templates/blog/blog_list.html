@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+{% load i18n %}
+{% block title %}
+
+{% endblock %}
+{% block head %}
+    <meta name="description" content="{% translate 'ТОВ Невідкладна правова допомога, повернення незаконно стягнутих коштів та компенсація понесених витрат за виконавчим написом нотаріуса.' %}">
+    <meta name="keywords" content="{% translate 'снять арест, зняття арешту, виконавчий напис нотаріус, исполнительная надпись нотариус' %}">
+{% endblock %}
+{% block menu %}
+{#    <div class="btn-group">#}
+        {% for obj in index_all %}
+            {% if obj.slug %}
+                <a class="btn btn-outline-primary align-self-stretch  my-3" href="/#{{ obj.slug }}">{{ obj.blcokId }}</a>
+            {% endif %}
+        {% endfor %}
+{#    </div>#}
+{% endblock %}
+{% block content %}
+    <div class="row">
+    {% for obj in blog_all %}
+
+        <div class="card col-sm-4 mb-1">
+            {% if obj.banner %}
+            <img src="/media/{{ obj.banner }}" class="card-img-top" alt="{{ obj.blockName }}">
+            {% endif %}
+            <div class="card-body">
+                <h3 class=" text-center"{% if obj.slug %}id="{{ obj.slug }}"{% endif %}>{{ obj.blockName }}</h3>
+                <p class="card-text">
+                    {{ obj.text|markdown|truncatewords_html:20 }}
+                    <a href="{{ obj.get_absolute_url }}"> {% translate 'Читати' %}</a>
+                </p>
+            </div>
+        </div>
+
+    {% endfor %}
+     </div>
+{% endblock %}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>

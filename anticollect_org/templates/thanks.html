@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load clients_tags %}
+{% load i18n %}
+{% block title %}
+
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block menu %}
+    {% thanks %}
+{#    <div class="btn-group">#}
+{#        {% for obj in thanks %}#}
+{#            {% if obj.slug %}#}
+                <a class="btn btn-outline-primary align-self-stretch  my-3" href="#{{ obj.slug }}">{{ obj.blcokId }}</a>
+{#            {% endif %}#}
+{#        {% endfor %}#}
+{#    </div>#}
+{% endblock %}
+{% block content %}
+    <h1>спасибо !</h1>
+{% endblock %}

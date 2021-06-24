@@ -1,0 +1,70 @@
+.bannerContainer{
+    height: 600px;
+    margin-top: -26px;
+}
+.bannerBlock{
+    background-image: url(/media/photo/index/sud.jpg);
+    background-size: cover;
+    height: 600px;
+    left: -1.5rem;
+    width: calc(100% + 3rem);
+    color: #f0f0f0;
+}
+.bannerText{
+    background-color: rgba(0,0,0,0.7);
+    padding-left: 15%;
+    padding-right: 15%;
+    bottom: 20px;
+}
+
+.bannerText hr {
+    border: none;
+    color: #fff;
+    background-color: #fff;
+    height: 0.5px;
+   }
+.service_image{
+    margin: 5px auto 6px auto;
+}
+
+/*------------------ flipbox --------------------------------------------------------------------*/
+
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}

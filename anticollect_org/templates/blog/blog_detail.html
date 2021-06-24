@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load blog_tags %}
+{% load i18n %}
+{% block title %}
+
+{% endblock %}
+
+    <meta name="description" content="{% block metaDescription %}{{ blog_one.metaDescrioption }}{% endblock %}">
+    <meta name="keywords" content="{% block metaKeywords %}{{ blog_one.metaKeyWords }}{% endblock %}">
+
+{% block head %}
+
+{% endblock %}
+{% block menu %}
+{#    <div class="btn-group">#}
+        {% for obj in index_all %}
+            {% if obj.slug %}
+                <a class="btn btn-outline-primary" href="/#{{ obj.slug }}">{{ obj.blcokId }}</a>
+            {% endif %}
+        {% endfor %}
+{#    </div>#}
+{% endblock %}
+{% block content %}
+    <div class="container">
+{#    {% for obj in blog_all %}#}
+        <div class="card" >
+
+            <div class="card-body">
+                <h3 class=" text-center">
+                    {% if blog_one.LongBlockName %}
+                        {{ blog_one.LongBlockName }}
+                    {% else %}
+                        {{ blog_one.blockName }}
+                    {% endif %}
+                </h3>
+                <p class="card-text">{% if blog_one.banner %}<img src="/media/{{ blog_one.banner }}" class="float-left pull-left mr-2" alt="{{ blog_one.blockName }}" width="300px">{% endif %}{{ blog_one.text|markdown }}</p>
+            </div>
+        </div>
+{#    {% endfor %}#}
+     </div>
+{% endblock %}
+
+
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
