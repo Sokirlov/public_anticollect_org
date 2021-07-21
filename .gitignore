@@ -2,3 +2,11 @@
 /db.sqlite3
 
 migrations/
+/SEO/
+/--cred/
+local_conf.py
+conf.py
+data.txt
+locale/
+/anticollect_org/locale/*
+/anticollect_org/templates/locale/

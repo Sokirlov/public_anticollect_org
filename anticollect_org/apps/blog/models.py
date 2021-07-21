@@ -1,25 +1,19 @@
 from django.db import models
 from tinymce.models import HTMLField
 from django.urls import reverse
-from io import BytesIO
 from PIL import Image
 from django.core.files import File
 from django.utils.safestring import  mark_safe
 
 
-#take name from path
 def ImgName(img):
     arr = img.split('/')
     return arr[-1]
 
-#image compression method
 def compress(image):
 
     im = Image.open(image)
-    # imR = im.resize(1600)
-    # im_io = BytesIO()
     NewImageName = ImgName(image.name)
-    # im_io.name = NewImageName
     im.save(NewImageName, 'JPEG', quality=60, )
     new_image = File(NewImageName, name=NewImageName)
     print('newImage', NewImageName)
@@ -41,14 +35,8 @@ def newPath(imgPath, image):
     else:
         return imgPath + image
 
-# def bannerImg(obj, image):
-#     # imgPath = 'photo/' + str(obj.slug) + '/banner.jpeg'
-#     # nPath = dublicateDelite(image)
-#     return 'photo/' + str(obj.slug) + '/banner.jpeg'
-
 def bannerImg(obj, image):
     imgPath = 'photo/' + str(obj.slug) + '/'
-    # dublicateDelite(image)
     return newPath(imgPath, image)
 
 class Blog(models.Model):
@@ -66,9 +54,9 @@ class Blog(models.Model):
                                help_text='Добавить привлекательную картинку для статьи')
     text = HTMLField('Наполнение блока', blank=True, max_length=20000)
     status = models.CharField('Состояние', max_length=20, choices=STATUS_CHOICES, null=True, blank=True, default='draft')
-    metaDescrioption = models.CharField('Мета описание', max_length=155, null=True, blank=True,
+    metaDescrioption = models.CharField('SEO описание', max_length=155, null=True, blank=True,
                                         help_text='Описание страницы для поисковиков\n будет видно в снипете(выдача поиска в Google)')
-    metaKeyWords = models.CharField('Ключевые слова', max_length=155, null=True, blank=True,
+    metaKeyWords = models.CharField('SEO Ключевые слова', max_length=155, null=True, blank=True,
                                     help_text='ключевые слова с поисковиков по теме')
 
     def image_tag(self):
@@ -77,15 +65,6 @@ class Blog(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:BlogDetail', kwargs={'slug': self.slug, })
-
-    # def save(self, *args, **kwargs):
-    #     try:
-    #         new_image = compress(self.banner)
-    #         # new_image = newPath(imgPath ,compressedImg)
-    #         self.banner = new_image
-    #     except ValueError:
-    #         pass
-    #     super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['id']

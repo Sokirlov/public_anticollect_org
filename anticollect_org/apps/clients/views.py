@@ -1,44 +1,23 @@
 from django.views.generic import CreateView
 from .models import Clients
-from index.models import Blocks
+from bot.tbb import new_clients
 from .forms import ClientsForm
-# from django.urls import reverse_lazy
-from django.shortcuts import render
 from django.core.mail import send_mail
-from django.views.generic.detail import DetailView
-
 
 class ClientsView(CreateView):
     model = Clients
     form_class = ClientsForm
     template_name = 'clients/form.html'
-    success_url = '/thanks/' #reverse_lazy('/')
+    success_url = '/thanks/'
 
-def index(request):
-    if request.POST:
-        form = ClientsView(request.POST)
-        if form.is_valid():
+    def form_valid(self, form):
             cd = form.cleaned_data
-            subject = 'Новая заявка от {} , на сумму {} '.format(cd['name'], cd['summ'],)
-            message = '{} из {}.\n Имеет {} на сумму {}\n\'s comments:'.format(cd['name'], cd['region'], cd['penalty'], cd['price'],)
-            send_mail(subject, message, 'send@fotka.kiev.ua', ['k.sokolov@dgfinance.com.ua'], fail_silently=False)
-            # sent = True
+            subject = 'Новая заявка от {} - сумму удержания {} '.format(cd['name'], cd['summ'], )
+            message = '{} из {}. Имеет {} на сумму {} Планирует заказать пакет {} Телефон:{}. Коротко про{}'.format(
+                cd['name'], cd['region'],cd['penalty'], cd['summ'], cd['price'], cd['tel'], cd['about'])
+            html_message = '{} из {}.<br /> Имеет {} на сумму {}<br /> Планирует заказать пакет {}<br /> Телефон:{}<br/><hr/>{}'.format(
+                cd['name'], cd['region'], cd['penalty'], cd['summ'], cd['price'], cd['tel'], cd['about'])
+            send_mail(subject, message, 'send@fotka.kiev.ua', ['v.shestakov@dgfinance.com.ua', 'e.kiyanitsa@dgfinance.com.ua', 'soxwhite@gmail.com'], html_message=html_message)
+            new_clients(message)
 
-            cd.save()  # use form to save it in DB
-        else:
-            return render(request, 'index/blocks_list.html' )
-    context = {'price': price, 'clients_form':form}
-    return render(request, 'index/blocks_list.html', context)
-
-
-class Thanks(DetailView):
-    model = Blocks
-    context_object_name = 'index_all'
-    queryset = Blocks.objects.filter(status='published').order_by('idsort')
-
-    def get_context_data(self, **kwargs):
-        context = super(BlocksListView, self).get_context_data(**kwargs)
-        context['contacts'] = Contacts.objects.get(id=1)
-        return context
-
-# 'name', 'tel', 'summ', 'region', 'penalty', 'price', 'about'
+            return super(ClientsView, self).form_valid(form)

@@ -1,7 +1,6 @@
 from django import template
-import markdown
 from django.utils.safestring import mark_safe
-# from index.views import FooterListView
+from index.models import Contacts, TopMenu
 
 register = template.Library()
 
@@ -10,6 +9,15 @@ def markdown_format(text):
     return mark_safe(text)
 
 #
-# @register.inclusion_tag('index/footer.html')
-# def footer():
-#     return {'footer': FooterListView()}
+@register.inclusion_tag('footer.html')
+def footer():
+    try:
+        contacts = Contacts.objects.get()
+    except:
+        contacts = None
+    return {'contacts': contacts}
+
+@register.inclusion_tag('d-menu.html')
+def navigation():
+    navigation = TopMenu.objects.all().order_by('idsort')
+    return {'navigation': navigation,}

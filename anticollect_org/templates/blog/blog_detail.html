@@ -11,15 +11,7 @@
 {% block head %}
 
 {% endblock %}
-{% block menu %}
-{#    <div class="btn-group">#}
-        {% for obj in index_all %}
-            {% if obj.slug %}
-                <a class="btn btn-outline-primary" href="/#{{ obj.slug }}">{{ obj.blcokId }}</a>
-            {% endif %}
-        {% endfor %}
-{#    </div>#}
-{% endblock %}
+
 {% block content %}
     <div class="container">
 {#    {% for obj in blog_all %}#}

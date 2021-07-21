@@ -7,16 +7,10 @@
 {% block head %}
 
 {% endblock %}
-{% block menu %}
-    {% thanks %}
-{#    <div class="btn-group">#}
-{#        {% for obj in thanks %}#}
-{#            {% if obj.slug %}#}
-                <a class="btn btn-outline-primary align-self-stretch  my-3" href="#{{ obj.slug }}">{{ obj.blcokId }}</a>
-{#            {% endif %}#}
-{#        {% endfor %}#}
-{#    </div>#}
-{% endblock %}
+
 {% block content %}
-    <h1>спасибо !</h1>
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+    <h1>{% translate 'Дякуємо за звернення' %}!</h1>
+    <p>{% translate "Наш спеціаліст зв'яжеться з вами найближчим часом" %}.</p>
+    </div>
 {% endblock %}

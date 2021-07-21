@@ -1,0 +1,10 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% for obj in navigation %}
+    {% if obj.name %}
+        <a class="btn btn-outline-primary align-self-stretch  m-1 mx-3" href="
+{% if 'http' in obj.link or 'www' in obj.link %}{% else %}/{{ LANGUAGE_CODE }}{% endif %}{{ obj.link }}
+">{{ obj.name }}</a>
+    {% endif %}
+{% endfor %}
+

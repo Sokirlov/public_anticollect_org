@@ -1,70 +1,314 @@
+html{
+    font-size: 15pt;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+body{
+    font-family: Calibri;
+    color: #252525;
+    /*font-size: 18pt;*/
+}
+h3{
+    font-size: 1.6em;
+    font-weight: 900
+}
+h4{
+    font-size: 1.4rem;
+}
+#menuContainer{
+    background-color: white !important;
+}
+.navbar-nav .btn{
+    min-width: 100px;
+}
 .bannerContainer{
-    height: 600px;
-    margin-top: -26px;
-}
-.bannerBlock{
-    background-image: url(/media/photo/index/sud.jpg);
-    background-size: cover;
-    height: 600px;
-    left: -1.5rem;
-    width: calc(100% + 3rem);
-    color: #f0f0f0;
-}
-.bannerText{
-    background-color: rgba(0,0,0,0.7);
-    padding-left: 15%;
-    padding-right: 15%;
-    bottom: 20px;
-}
 
-.bannerText hr {
-    border: none;
-    color: #fff;
+    clip-path: polygon(0% 0%, 0% 83%, 10% 100%, 56% 100%, 70% 83%, 100% 83%, 100% 0%, 80% 0%);
+    height: 80vh;
+    min-height: 650px;
+    width: calc(100vw - 17px);
+    background-position: center;
+    background-size: cover;
+}
+.bannerTitle{
+    top:10%;
+}
+.bannerTitle h1{
+    font-size: 4vw;
+}
+.bannerBtn{
+    top: 50%;
+    left: 20%;
+    position: absolute
+}
+#banner_spravka{
+    bottom:0%;  background-color: rgba(0,0,0,0.5);
+}
+#shape_left{
+    shape-outside: polygon(10% 0%, 0% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(0% 100%, 100% 100%);
     background-color: #fff;
-    height: 0.5px;
-   }
+    width: 10%;
+    float: left;
+}
+#shape_right{
+    shape-outside: polygon(100% 0%, 18% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(100% 51%, 100% 100%);
+    background-color: #fff;
+    width: 50%;
+    /*height: 100px;*/
+    float: right;
+}
+#service{
+
+    /*clip-path: polygon(0% 17%, 0% 100%, 0% 100%, 100% 100%, 100% 0%, 70% 0%, 56% 17%);*/
+    clip-path: polygon(0% 8vw, 0% 100%, 0% 100%, 100% 100%, 100% 0%, 70% 0%, 56% 8vw);
+    height: 80vh;
+    min-height: 400px;
+    width: calc(100vw - 17px);
+    /*background-position: center;*/
+    /*background-size: cover;*/
+}
+#service-title{
+    float: right;
+    /*margin: 3% 6% 0 0;*/
+    margin: 0 6% 0 0;
+    /*background-color: #41a3c7;*/
+    background-color: rgba(65,163,199,0.8);
+    padding: 5px 20px 0 150px;
+    color: #fff;
+    clip-path: polygon(32% 0%, 0% 100%, 100% 100%, 100% 0);
+    border-right: 4px solid #256982;
+}
+.min-height-5{
+    height: 500px;
+}
+#info-1{
+    padding: 0 10%;
+}
+#etapi{
+
+    height: 80vh;
+    /*min-height: 500px;*/
+    width: calc(100vw - 17px);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+#etapi-title{
+    background-color: rgba(65,163,199,0.9);
+}
+#guarantee li{
+     margin-bottom: 50px
+}
 .service_image{
     margin: 5px auto 6px auto;
+}
+.service_title_container{
+    height: 8vw;
+    display: flex;
+    width: 100%;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 /*------------------ flipbox --------------------------------------------------------------------*/
 
 .flip-box {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px;
+    background-color: transparent;
+    /*width: 300px;*/
+    /*height: 200px;*/
+    /*border: 1px solid #f1f1f1;*/
+    perspective: 1000px;
+    min-height: 200px;
 }
 
 .flip-box-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .flip-box-front, .flip-box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .flip-box-front {
-  background-color: #bbb;
-  color: black;
+    background-color: rgba(255,255,255,0.8);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.flip-box-front li, .flip-box-back li{
+    list-style-position: inside;
+}
+.flip-box-front ul, .flip-box-back ul{
+    padding: 0;
+}
+.flip-box-inner * {
+    width: 100%;
 }
 
+
 .flip-box-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
+    background-color: rgba(65,163,199,0.8);
+    /*background-color: #41a3c7;*/
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    border-radius: 0 !important;
+    font-size: 18pt;
+
+}
+.btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
+    background-color: #41a3c7;
+    border: 1px solid #41a3c7;
+    font-size: 18pt;
+}
+.btn-primary:hover{
+    background-color: rgba(65,163,199,0.3);
+    border: 1px solid #41a3c7;
+}
+.accordion-header.collapsed{
+    background: transparent;
+}
+.btn-outline-primary{
+    border: 1px solid #41a3c7;
+    color: #41a3c7;
+}
+.btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:focus,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle{
+    border: 1px solid #41a3c7;
+    background: #41a3c7 ;
+    color: white;
+}
+.accordion-header:not(.collapsed){
+    background: #41a3c7;
+    color: white;
+}
+#etapi li{
+    line-height: 2.5;
+
+}
+.price p{
+    font-size: 32pt;
+}
+#guarantee li{
+    list-style: none;
+    list-style-image: url("/static/icon/done.png");
+
+
+}
+sub, sup{
+    font-size: 50%;
+}
+.bg-info{
+    /*background: #41a3c7;*/
+    background-color: rgba(65,163,199,0.8) !important;
+}
+.card{
+    border-radius: 0;
+}
+@media (max-width: 992px){
+    body{
+        font-size: 0.78em;
+    }
+    .navbar{
+        padding: 0;
+    }
+    /*h3{*/
+    /*    font-size: 24pt;*/
+    /*}*/
+    h4 {
+        font-size: 1.4rem;
+    }
+    .bannerContainer{
+        clip-path: none;
+        clip-path: none;
+        width: 100%;
+        padding-top: 50px;
+    }
+    .bannerTitle h1 {
+        font-size: 36pt;
+        padding: 0 30px ​!importan
+    }
+    .bannerTitle{
+        position: relative !important;
+    }
+    .bannerBtn{
+        position: relative;
+        margin: 50px auto;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+    }
+    #shape_left, #shape_right{
+        display: none;
+    }
+    #banner_spravka p {
+        line-height: 1;
+        padding: 0 10px;
+    }
+    .min-height-5 {
+        height: auto;
+    }
+    #service{
+        clip-path: none;
+        width: 100%;
+        padding: 50px 0;
+        height: auto;
+    }
+    #service-title{
+        padding: 5px 20px 0 20px;
+        clip-path: none;
+        float: none;
+        margin: 0 30px;
+        width: 100%;
+    }
+    .flip-box-back{
+        line-height: 1.2;
+    }
+    #info-2 div{
+        padding: 10px !important;
+    }
+    .w-50{
+        width: 100% !important;
+    }
+    #etapi-title{
+        padding: 10px 20px !important;
+    }
+    #etapi li{
+        line-height: 2;
+    }
+    .card-text{
+        height: auto !important;
+    }
+    .form-control{
+        font-size: 0.7rem
+    }
 }

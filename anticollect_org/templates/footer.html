@@ -1,0 +1,7 @@
+<div class="container-fluid bg-secondary text-light text-center py-2"  style="color: #252525;">
+    <div  style="color: #252525;">{% if contacts.name %}{{ contacts.name }}{% endif %}</div>
+    <div  style="color: #252525;">{% if contacts.adress %}{{ contacts.adress }}{% endif %} {% if contacts.code %}, Код ЄДРПОУ: {{ contacts.code }}{% endif %} </div>
+
+    {% if contacts.tel %}<div  style="color: #252525;">Телефон: <a  style="color: #252525;" href="tel:+{{ contacts.tel }}" title="+{{ contacts.tel }}">+{{ contacts.tel }}</a>,{% endif %}
+    {% if contacts.email %}{{ contacts.email }}{% endif %}</div>
+</div>

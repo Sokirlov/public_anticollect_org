@@ -1,20 +1,14 @@
 from django.contrib import admin
 from .models import Blog
-from modeltranslation.admin import TranslationAdmin#,TranslationStackedInline
-
+from modeltranslation.admin import TranslationAdmin
 from django.forms import TextInput, Textarea
 from django.db import models
 
 
 class BlogAdmin(TranslationAdmin):
-# class BlocksAdmin(admin.ModelAdmin):
-
-    # list_display_links = ('id', 'title',)
     list_display = ['blockName', 'slug', 'idsort', 'image_tag', 'status',]
     list_editable = ['idsort', 'status']
-    # ordering = ['slug', 'idsort',]
     sortable_field_name = "idsort"
-    # list_filter = ('status', 'slug',)
     prepopulated_fields = {'slug': ('blockName',)}
 
     fieldsets = (
@@ -36,7 +30,6 @@ class BlogAdmin(TranslationAdmin):
         js = (
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
-            # '/static/scripts/tiny-editor.js', # проверить
             '/static/modeltranslation/js/force_jquery.js',
             'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
@@ -47,16 +40,3 @@ class BlogAdmin(TranslationAdmin):
             ),
         }
 admin.site.register(Blog, BlogAdmin)
-
-# 'blockName', 'slug', 'idsort', 'banner', 'text', 'status',
-#
-#
-#
-# 'blockName'
-# 'slug'
-# 'created'
-# 'lastmod'
-# 'idsort'
-# 'banner'
-# 'text'
-# 'status'
