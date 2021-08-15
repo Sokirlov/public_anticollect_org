@@ -1,3 +1,2 @@
-static/* linguist-vendored
-templates/* linguist-vendored
-anticollect_org/templates/* linguist-vendored
+* linguist-vendored
+*.py linguist-vendored=false
