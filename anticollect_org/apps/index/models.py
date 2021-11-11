@@ -1,7 +1,9 @@
 from django.db import models
+
 from tinymce.models import HTMLField
 from django.core.exceptions import ValidationError
-
+import datetime
+from django.utils.translation import gettext_lazy as _
 
 
 class Banner(models.Model):
@@ -21,6 +23,8 @@ class Banner(models.Model):
                            help_text='Максимальная длина текст, 35 символов с пробелами\nчтоб отключить оставить поле пустым')
     banner = models.ImageField('Картинка для фона', upload_to='bgr', null=True, blank=True,
                                help_text='минимальный размер 1280рх максимальный 2560рх по ширене\nдля белого фона оставить поле пустым')
+    mideleText = HTMLField('Подзаголовок\nсредний блок', blank=True, max_length=5000,
+                     help_text='внутрення часть блока поддерживаються HTML теги')
     class Meta:
         verbose_name = 'Баннер (верхний блок)'
         verbose_name_plural = '1. Баннер (верхний блок)'
@@ -145,12 +149,14 @@ class Price(models.Model):
     name =models.CharField('Название пакета', max_length=200, null=True, blank=True)
     text = HTMLField('Описание пакета', blank=True, max_length=3000,
                      help_text='Опишите что входит в услугу')
-    price = models.PositiveSmallIntegerField('Цена пакета')
+    price = models.PositiveSmallIntegerField('Цена пакета', null=True, blank=True)
     idsort = models.PositiveSmallIntegerField(verbose_name='Порядок сортировки', default=1)
     status = models.CharField('Состояние', max_length=20, choices=STATUS_CHOICES, default='draft',
                               help_text='можно скрыть блок, чтоб его не удалять.')
     stages =models.ManyToManyField(Stages, verbose_name='Выберети этапы', blank=True)
     remarq = models.CharField('Сноска со звездочкой', max_length=300, null=True, blank=True)
+    textLinkToForm = models.CharField('Текст для ссылки если нет цены', max_length=200, null=True, blank=True)
+
 
 
     class Meta:
@@ -192,3 +198,21 @@ class TopMenu(models.Model):
 
     def __str__(self):
         return self.name
+
+class Feedbacks(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Отключено'),
+        ('published', 'Включено'),
+    )
+    status = models.CharField('Состояние', max_length=20, choices=STATUS_CHOICES, default='draft',
+                              help_text='можно скрыть блок, чтоб его не удалять.')
+    text = HTMLField('Описание пакета', blank=True, max_length=3000,
+                     help_text='Опишите что входит в услугу')
+    idsort = models.PositiveSmallIntegerField(verbose_name='Порядок сортировки', default=1)
+
+    class Meta:
+        verbose_name = 'Отзывы'
+        verbose_name_plural = '9. Отзывы'
+
+    def __str__(self):
+        return str(self.id)

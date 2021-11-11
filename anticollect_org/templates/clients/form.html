@@ -14,20 +14,15 @@
 
 {% endblock %}
 
-{#<div class="form_bgr">#}
 <div class="container-fluid bg-info py-5" id="contactForm">
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
         <form action="{% url 'clients:clients' %}" method="post" class="d-flex flex-column">
             <h3 class="text-light text-center">{% translate "Відправити запит" %}</h3>
             {% csrf_token %}
-{#            {{ clients_form }}#}
-
             <div class="d-flex m-1">{{ clients_form.name }}</div>
             <div class="d-flex m-1">{{ clients_form.tel }} &nbsp {{ clients_form.summ }}</div>
-{#            <div class="d-flex m-1">{{ clients_form.region }}</div>#}
-            <div class="d-flex m-1">{{ clients_form.penalty }} &nbsp {{ clients_form.price }}</div>
-{#            <div class="d-flex m-1">{{ clients_form.price }}</div>#}
+            <div class="d-flex m-1">{{ clients_form.price }}</div>
             <div class="d-flex m-1">{{ clients_form.about }}</div>
             <div class="d-flex m-1 justify-content-end"><button class="btn btn-outline-light"><span class="btn_form_text">{% translate 'Відправити запит' %}</span></button></div>
         </form>

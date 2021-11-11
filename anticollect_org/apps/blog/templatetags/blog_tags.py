@@ -1,6 +1,7 @@
 from django import template
 register = template.Library()
 from django.utils.safestring import mark_safe
+import markdown
 
 
 @register.filter(name='markdown')

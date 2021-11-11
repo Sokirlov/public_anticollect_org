@@ -1,6 +1,6 @@
 from django.contrib import admin
-from modeltranslation.admin import TranslationAdmin
-from .models import Price, Contacts, Banner, InfoOne, Services, InfoTwo, Stages, Guarantees, TopMenu
+from modeltranslation.admin import TranslationAdmin#,TranslationStackedInline
+from .models import Price, Contacts, Banner, InfoOne, Services, InfoTwo, Stages, Guarantees, TopMenu, Feedbacks
 
 
 class BannerAdmin(TranslationAdmin):
@@ -9,7 +9,7 @@ class BannerAdmin(TranslationAdmin):
     list_editable = ["status"]
     fieldsets = (
         ('Разработано Sokolov for DG Finance', {'fields': (
-            "title", "secondTitle",
+            "title", "secondTitle", "mideleText",
             ("slug",  "status",),
             "banner", "btn", "text",),
         }),
@@ -26,7 +26,7 @@ class BannerAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -55,7 +55,7 @@ class InfoOneAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -85,7 +85,7 @@ class InfoTwoAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -107,7 +107,7 @@ class ServicesAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -127,7 +127,7 @@ class StagesAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/js/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -148,7 +148,7 @@ class GuaranteesAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -167,7 +167,7 @@ class PriceAdmin(TranslationAdmin):
     list_filter = ('status',)
 
     fieldsets = (
-        ('Разработано Sokolov for DG Finance', {'fields': ('name', ('price', 'idsort', 'status'), 'stages',  'remarq', 'text',), }),
+        ('Разработано Sokolov for DG Finance',{'fields': ('name', ('price', 'idsort', 'status'), 'textLinkToForm', 'stages', 'remarq', 'text',), }),
     )
     class Media:
         js = (
@@ -175,7 +175,7 @@ class PriceAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce_init.js',
             # '/static/scripts/tiny-editor.js', # проверить
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -205,7 +205,7 @@ class ContactsAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -235,7 +235,7 @@ class TopMenuAdmin(TranslationAdmin):
             '/static/tiny_mce/tiny_mce.js',
             '/static/tiny_mce/tiny_mce_init.js',
             '/static/modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
             '/static/modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -245,3 +245,26 @@ class TopMenuAdmin(TranslationAdmin):
         }
 
 admin.site.register(TopMenu, TopMenuAdmin)
+
+class FeedbacksAdmin(TranslationAdmin):
+    list_display_links = ('id', 'text',)
+    list_display = ['id', 'status', 'idsort', 'text',]
+    list_editable = [ 'status', 'idsort', ]
+    fieldsets = (
+        ('Разработано Sokolov for DG Finance', {'fields': ('status', 'idsort', 'text', ), }),
+    )
+
+    class Media:
+        js = (
+            '/static/tiny_mce/tiny_mce.js',
+            '/static/tiny_mce/tiny_mce_init.js',
+            '/static/modeltranslation/js/force_jquery.js',
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js',
+            '/static/modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': (
+                '/static/modeltranslation/css/tabbed_translation_fields.css',
+            ),
+        }
+admin.site.register(Feedbacks, FeedbacksAdmin)

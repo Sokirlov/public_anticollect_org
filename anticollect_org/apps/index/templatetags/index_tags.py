@@ -1,6 +1,8 @@
 from django import template
+import markdown
 from django.utils.safestring import mark_safe
 from index.models import Contacts, TopMenu
+# from index.views import FooterListView
 
 register = template.Library()
 

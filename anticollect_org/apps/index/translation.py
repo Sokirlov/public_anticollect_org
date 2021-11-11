@@ -1,9 +1,13 @@
 from modeltranslation.translator import translator, TranslationOptions
-from .models import Price, Contacts, Banner, InfoOne, Services, InfoTwo, Stages, Guarantees, TopMenu
+from .models import Price, Contacts, Banner, InfoOne, Services, InfoTwo, Stages, Guarantees, TopMenu, Feedbacks
 
+# class BlocksTranslationOptions(TranslationOptions):
+# 	fields = ('blockName', 'blcokId', 'text')
+# 	# empty_values = {'name': '', 'content': ''}
+# translator.register(Blocks, BlocksTranslationOptions)
 
 class BannerTranslationOptions(TranslationOptions):
-	fields = ("btn", "text", "title", "secondTitle",)
+	fields = ("btn", "text", "title", "secondTitle", "mideleText", )
 translator.register(Banner, BannerTranslationOptions)
 
 class InfoOneTranslationOptions(TranslationOptions):
@@ -31,13 +35,20 @@ translator.register(Guarantees, GuaranteesTranslationOptions)
 
 
 class PriceTranslationOptions(TranslationOptions):
-	fields = ('name', 'text', 'remarq',)
+	fields = ('name', 'text', 'remarq', 'textLinkToForm', )
+	# empty_values = {'name': '', 'content': ''}
 translator.register(Price, PriceTranslationOptions)
 
 class ContactsTranslationOptions(TranslationOptions):
 	fields = ('name', 'adress', )
+	# empty_values = {'name': '', 'content': ''}
 translator.register(Contacts, ContactsTranslationOptions)
 
 class TopMenuTranslationOptions(TranslationOptions):
 	fields = ('name',)
+	# empty_values = {'name': '', 'content': ''}
 translator.register(TopMenu, TopMenuTranslationOptions)
+
+class FeedbacksTranslationOptions(TranslationOptions):
+	fields = ('text',)
+translator.register(Feedbacks, FeedbacksTranslationOptions)

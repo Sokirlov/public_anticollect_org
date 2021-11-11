@@ -20,12 +20,14 @@
 //     </script>
 
 $(document).ready(function () {
-    var phones = [{ "mask": "+38 (###) ### ## ##"}, { "mask": "(###) ### ## ##"}];
+    var phones = [{ "mask": "+38 (###) ### ## ##"}, { "mask": "+38 (###) ### ## ##"}];
     $('#id_tel').inputmask({
         mask: phones,
         greedy: false,
+        jitMasking : true,
+        clearIncomplete: true,
         definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
-
+    //'pattern':"+38 ([0-9]{2}) [0-9]{3} [0-9]{2} [0-9]{2}"
     $("a").click(function () {
         var elementClick = $(this).attr("href")
         var searchLink = elementClick.match(/#.+/)

@@ -1,5 +1,6 @@
 from django import template
 from clients.forms import ClientsForm
+# from clients.views import Thanks
 
 
 register = template.Library()
@@ -12,3 +13,9 @@ def clients_form():
 @register.inclusion_tag('clients/small-form.html')
 def small_form():
     return {'clients_form': ClientsForm()}
+
+# @register.inclusion_tag('thanks.html')
+# def thanks():
+#
+#     return {'thanks': Thanks()}
+

@@ -35,13 +35,19 @@ h4{
 .bannerTitle h1{
     font-size: 4vw;
 }
+.midleText{
+    width: 57%;
+    background-color: rgba(0,0,0,0.7);
+    font-size: 12pt;
+}
 .bannerBtn{
     top: 50%;
     left: 20%;
-    position: absolute
+    /*position: absolute*/
 }
 #banner_spravka{
     bottom:0%;  background-color: rgba(0,0,0,0.5);
+    position: absolute;
 }
 #shape_left{
     shape-outside: polygon(10% 0%, 0% 0%, 0% 100%, 100% 100%);
@@ -213,6 +219,7 @@ h4{
 }
 .price p{
     font-size: 32pt;
+    line-height: 45pt;
 }
 #guarantee li{
     list-style: none;
@@ -230,6 +237,12 @@ sub, sup{
 .card{
     border-radius: 0;
 }
+.feedbacks{
+    background-color: rgba(65,163,199,0.8);
+    width: 30%;
+    height: 200px
+}
+
 @media (max-width: 992px){
     body{
         font-size: 0.78em;
@@ -256,6 +269,9 @@ sub, sup{
     .bannerTitle{
         position: relative !important;
     }
+    .midleText {
+        width: 100%;
+    }
     .bannerBtn{
         position: relative;
         margin: 50px auto;
@@ -269,6 +285,9 @@ sub, sup{
     }
     #shape_left, #shape_right{
         display: none;
+    }
+    #banner_spravka {
+        position: relative;
     }
     #banner_spravka p {
         line-height: 1;
@@ -310,5 +329,10 @@ sub, sup{
     }
     .form-control{
         font-size: 0.7rem
+    }
+    .feedbacks{
+    background-color: rgba(65,163,199,0.8);
+    width: 100%;
+    min-height: 200px
     }
 }

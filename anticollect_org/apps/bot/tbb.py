@@ -7,9 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 mainPath = os.getcwd()
 fileData = os.getcwd()+'/data.txt'
-apikey = ''
+apikey = '1888133117:AAFleRj5Di40vJKrE5pY6b-KeLudpNkhK5c'
 bot = telebot.TeleBot(apikey, threaded=False)
-link = ''
+link = 'https://anticollect.org/botTelegram/D@NetQ3kNMh&4c-eRNw=_wVkfqM$j^Cd+b+BP9uyHsNG-Gaj*8+NBL_3qyEkzFWT'
 
 
 
@@ -50,4 +50,4 @@ def new_clients(text):
         for i in usersArrey:
             bot.send_message(chat_id=i, text=text)
 bot.remove_webhook()
-bot.set_webhook(url=f"{link}/")
+# bot.set_webhook(url=f"{link}/")
